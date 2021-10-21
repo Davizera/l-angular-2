@@ -11,4 +11,11 @@
 [x] - criar module e component de msg para validacao
 [x] - exportar esse component
 [x] - aplicar validacao na tela de login
-[] -
+[x] - criar component para novo usuario
+[x] - criar template para cadastro de novo usuario
+[x] - adicionar links para cadastro de novo usuario e caso ja tenha um usuario volte para tela de login
+[x] - criar um servico de novo usuario
+[x] - criar form reativo
+[x] - importar form reativo
+[x] - criar interface para cadastro de novo usuario
+[x] - implementar controle do form no component de novo usuario

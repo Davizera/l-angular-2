@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { NewUser } from './interfaces/new-user';
 import { NewUserService } from './services/new-user.service';
 import { ValidateEmail } from './validators/email.validator';
@@ -17,7 +18,8 @@ export class NewUserComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private _newUserService: NewUserService
+    private _newUserService: NewUserService,
+    private _router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +43,18 @@ export class NewUserComponent implements OnInit {
   }
 
   signUp() {
-    const rawValues = this.newUserForm.getRawValue() as NewUser;
-    console.log(rawValues);
+    if (this.newUserForm.valid) {
+      const newUser = this.newUserForm.getRawValue() as NewUser;
+      this._newUserService.singUp(newUser).subscribe(
+        (success) => this._router.navigate(['animais']),
+        (error) => console.log(error)
+      );
+    } else {
+      this.newUserForm.setErrors([
+        {
+          someValidationsFailed: true,
+        },
+      ]);
+    }
   }
 }

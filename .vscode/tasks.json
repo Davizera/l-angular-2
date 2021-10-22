@@ -32,7 +32,7 @@
       },
 
       "options": {
-        "cwd": "${workspaceFolder}"
+        "cwd": "${workspaceFolder}/gatitobook"
       }
     }
   ]

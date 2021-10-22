@@ -11,7 +11,7 @@ export class NewUserService {
   constructor(private _httpClient: HttpClient) {}
 
   singUp(newUser: NewUser) {
-    return this._httpClient.post(`${this._baseUrl}/singup`, newUser);
+    return this._httpClient.post(`${this._baseUrl}/signup`, newUser);
   }
 
   isUsernameUnique(userName: string) {

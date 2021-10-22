@@ -69,6 +69,10 @@
     *ngIf="newUserForm.errors?.userNameAndPasswordAreEqual"
     message="Usuário e senha precisam ser diferentes."
   ></app-messages>
+  <app-messages
+    *ngIf="newUserForm.errors?.someValidationsFailed"
+    message="Algumas validacao falharam"
+  ></app-messages>
   <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
 </form>
 

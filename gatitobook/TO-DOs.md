@@ -24,3 +24,4 @@
 [x] - criar validacao assincrona para verificar se o nome do usuario é unico
 [x] - criar validacao para que senha e usuario sejam diferentes
 [x] - criar validacao para email em uso
+[] - fazer metodo para salvar novo usuario

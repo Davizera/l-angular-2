@@ -57,7 +57,6 @@ class UserDao {
           }
 
           if (row) resolve(userConverter(row));
-          console.log(userConverter(row));
           resolve(null);
         }
       )

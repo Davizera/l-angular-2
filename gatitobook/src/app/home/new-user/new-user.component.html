@@ -19,6 +19,17 @@
       formControlName="email"
     />
   </div>
+  <app-messages
+    *ngIf="
+      newUserForm.get('email')?.errors?.required &&
+      newUserForm.get('email')?.touched
+    "
+    message="E-mail obrigatório"
+  ></app-messages>
+  <app-messages
+    *ngIf="newUserForm.get('email')?.errors?.emailExists"
+    message="Email já está em uso. Por favor, tente outro!"
+  ></app-messages>
   <div class="form-group">
     <input
       class="form-control"

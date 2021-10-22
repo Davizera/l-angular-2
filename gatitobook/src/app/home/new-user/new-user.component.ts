@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewUser } from './interfaces/new-user';
 import { NewUserService } from './services/new-user.service';
+import { ValidateEmail } from './validators/email.validator';
 
 @Component({
   selector: 'app-new-user',
@@ -19,15 +20,19 @@ export class NewUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.newUserForm = this._formBuilder.group({
-      userName: [''],
       fullName: [''],
-      email: [''],
+      email: [
+        '',
+        [Validators.required, Validators.email],
+        [ValidateEmail(this._newUserService)],
+      ],
+      userName: [''],
       password: [''],
     });
   }
 
   signUp() {
-    const rawValues = this.newUserForm.getRawValue();
+    const rawValues = this.newUserForm.getRawValue() as NewUser;
     console.log(rawValues);
   }
 }

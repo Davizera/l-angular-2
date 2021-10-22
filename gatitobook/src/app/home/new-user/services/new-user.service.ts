@@ -14,6 +14,10 @@ export class NewUserService {
     return this._httpClient.post(`${this._baseUrl}/singup`, newUser);
   }
 
+  isUsernameUnique(userName: string) {
+    return this._httpClient.get(`${this._baseUrl}/exists/${userName}`);
+  }
+
   isEmailUnique(email: string) {
     const emailEncoded = encodeURI(email);
     return this._httpClient.get(

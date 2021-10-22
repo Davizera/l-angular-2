@@ -1,5 +1,4 @@
 import { AbstractControl } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { first, map, switchMap } from 'rxjs/operators';
 import { NewUserService } from '../services/new-user.service';
 

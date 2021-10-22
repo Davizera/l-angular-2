@@ -19,8 +19,8 @@
 [x] - importar form reativo
 [x] - criar interface para cadastro de novo usuario
 [x] - implementar controle do form no component de novo usuario
-[] - criar validacoes padrao para o nosso form de novo usuario
-[] - criar validacao customizada para nome do usuario
-[] - criar validacao assincrona para verificar se o nome do usuario é unico
-[] - criar validacao para que senha e usuario sejam diferentes
-[] -
+[x] - criar validacoes padrao para o nosso form de novo usuario
+[x] - criar validacao customizada para nome do usuario
+[x] - criar validacao assincrona para verificar se o nome do usuario é unico
+[x] - criar validacao para que senha e usuario sejam diferentes
+[x] - criar validacao para email em uso

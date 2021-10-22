@@ -11,3 +11,15 @@ export function ValidateUserName(newUserService: NewUserService) {
     );
   };
 }
+
+export class UserNameValidators {
+  ValidateUserName(newUserService: NewUserService) {
+    return (control: AbstractControl) => {
+      return control.valueChanges.pipe(
+        switchMap((userName) => newUserService.isUsernameUnique(userName)),
+        map((userExists) => (!!userExists ? { userExists: true } : null)),
+        first()
+      );
+    };
+  }
+}

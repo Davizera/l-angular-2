@@ -50,11 +50,9 @@ export class NewUserComponent implements OnInit {
         (error) => console.log(error)
       );
     } else {
-      this.newUserForm.setErrors([
-        {
-          someValidationsFailed: true,
-        },
-      ]);
+      this.newUserForm.setErrors({
+        someValidationsFailed: true,
+      });
     }
   }
 }

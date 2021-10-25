@@ -1,17 +1,17 @@
 <h4 class="text-center">Login</h4>
 
-<form class="form mt-4" (ngSubmit)="login()" #loginEnable="ngForm">
+<form class="form mt-4" (ngSubmit)="login()" [formGroup]="loginForm">
   <div class="form-group">
     <input
       class="form-control"
       placeholder="Nome do usuário"
-      [(ngModel)]="user"
-      name="user"
-      required
-      #inputUser="ngModel"
+      formControlName="user"
     />
     <app-messages
-      *ngIf="inputUser.invalid && inputUser.touched"
+      *ngIf="
+        loginForm.get('user')?.errors?.required &&
+        loginForm.get('user')?.touched
+      "
       message="Usuário é obrigatório"
     ></app-messages>
   </div>
@@ -21,25 +21,25 @@
       type="password"
       class="form-control"
       placeholder="Senha"
-      [(ngModel)]="password"
-      name="password"
-      required
-      #inputPassword="ngModel"
+      formControlName="password"
     />
     <app-messages
-      *ngIf="inputPassword.invalid && inputPassword.touched"
+      *ngIf="
+        loginForm.get('password')?.errors?.required &&
+        loginForm.get('password')?.touched
+      "
       message="Senha é obrigatória"
     ></app-messages>
   </div>
 
   <app-messages
-    *ngIf="unauthorized"
+    *ngIf="loginForm.errors?.unauthorized"
     message="Usuário ou senha inválidos"
   ></app-messages>
   <button
     type="submit"
     class="btn btn-primary btn-block"
-    [disabled]="loginEnable.invalid"
+    [disabled]="loginForm.invalid"
   >
     Login
   </button>

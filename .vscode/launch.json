@@ -1,6 +1,18 @@
 {
   "version": "0.2.0",
   "configurations": [
+    {
+      "name": "Launch API",
+      "request": "launch",
+      "runtimeArgs": ["run-script", "start"],
+      "runtimeExecutable": "npm",
+      "cwd": "${workspaceFolder}/api/",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+
     // Based on: https://github.com/microsoft/vscode-recipes/tree/master/Angular-CLI
     {
       "name": "Launch ng serve & Chrome",

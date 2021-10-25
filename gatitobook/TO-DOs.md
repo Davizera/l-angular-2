@@ -24,4 +24,9 @@
 [x] - criar validacao assincrona para verificar se o nome do usuario é unico
 [x] - criar validacao para que senha e usuario sejam diferentes
 [x] - criar validacao para email em uso
-[] - fazer metodo para salvar novo usuario
+[x] - fazer metodo para salvar novo usuario
+[x] - instalar o jwt-decode
+[x] - criar servico para token
+[x] - criar metodo para salvar, pegar e deletar um token
+[x] - criar servico de usuario para consumir servico de token
+[] -

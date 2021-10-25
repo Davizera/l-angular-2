@@ -32,6 +32,10 @@
     ></app-messages>
   </div>
 
+  <app-messages
+    *ngIf="unauthorized"
+    message="Usuário ou senha inválidos"
+  ></app-messages>
   <button
     type="submit"
     class="btn btn-primary btn-block"

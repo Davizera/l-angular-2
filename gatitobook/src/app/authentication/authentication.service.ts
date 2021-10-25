@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { UserService } from './user/user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,16 +11,29 @@ import { Observable } from 'rxjs';
 export class AuthenticationService {
   private _baseUrl = 'http://localhost:3000';
 
-  constructor(private _httpClient: HttpClient, private _route: Router) {}
+  constructor(
+    private _httpClient: HttpClient,
+    private _route: Router,
+    private _userService: UserService
+  ) {}
 
   public authorize(user: string, password: string) {
-    let result!: Observable<Object> | Error;
+    let result!: Observable<HttpResponse<any>> | Error;
 
-    this._httpClient
-      .post(`${this._baseUrl}/user/login`, {
-        userName: user,
-        password: password,
-      })
-      .subscribe((success) => this._route.navigate(['animais']));
+    return this._httpClient
+      .post(
+        `${this._baseUrl}/user/login`,
+        {
+          userName: user,
+          password: password,
+        },
+        { observe: 'response' }
+      )
+      .pipe(
+        tap((response) => {
+          const authToken = response.headers.get('x-access-token') ?? '';
+          this._userService.login(authToken);
+        })
+      );
   }
 }

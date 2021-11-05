@@ -4,12 +4,13 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { UserService } from './user/user.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private _baseUrl = 'http://localhost:3000';
+  private _baseUrl = environment.apiURL;
 
   constructor(
     private _httpClient: HttpClient,
